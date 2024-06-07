@@ -63,7 +63,7 @@ export const sortPosts = ( (checked) => {
   // let old_indices = [];
   const totalPost = $w("#dataset1").getTotalCount();
   console.log('Before sort');
-  $w("#dataset1").getItems(0, totalPost).then( (result) => {
+  $w("#dataset1").getItems(0, 3).then( (result) => {
     console.log('result', result);
     // for (let post of result.items) {
     //   console.log('post:', post);
@@ -73,6 +73,7 @@ export const sortPosts = ( (checked) => {
   .catch( (err) => {
     let errMsg = err.message;
     let errCode = err.code;
+    console.log('error:', errMsg, errCode);
   } );
 
   // Query the forum posts collection posted by the current user
