@@ -1,0 +1,2 @@
+export interface Payload {
+    payload: { 'formName': string; 'submissionTime': string; 'submissionId': string; 'contactId': string; 'formType': string; 'formId': string; 'contact': { 'name': { 'last': string; 'first': string; }; 'email': string; 'locale': string; 'company': string; 'birthdate': string; 'address': { 'city': string; 'addressLine': string; 'formattedAddress': string; 'country': string; 'postalCode': string; 'addressLine2': string; 'subdivision': string; }; 'jobTitle': string; 'phone': string; }; 'field:comp-jumabh9k': string; }}
