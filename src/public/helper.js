@@ -170,7 +170,7 @@ export const sortPosts = ( (checked) => {
   } 
 
   let sort = wixData.sort();
-  sort = sort.ascending("createdDate");
+  sort = sort.ascending("categoryId");
 
   $w("#dataset1").onReady( () => {
     $w("#dataset1").setFilter(filter)
