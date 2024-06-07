@@ -61,22 +61,18 @@ export const sortPosts = ( (checked) => {
   let userId = wixUsers.currentUser.id;
   console.log('user:', userId);
   // let old_indices = [];
-  $w("#dataset1").onReady( () => {
-    // const totalPost = $w("#dataset1").getTotalCount();
-    console.log('Before sort');
-    $w("#dataset1").getItems(0, 3).then( (result) => {
-      console.log('result', result);
-      // for (let post of result.items) {
-      //   console.log('post:', post);
-      //   old_indices.push(post._id);
-      // }
-    } )
-    .catch( (err) => {
-      let errMsg = err.message;
-      let errCode = err.code;
-      console.log('error:', errMsg, errCode);
-    } );
-  } );
+  // const totalPost = $w("#dataset1").getTotalCount();
+  // $w("#dataset1").getItems(0, totalPost).then( (result) => {
+  //   console.log('items', result.items);
+  //   for (let post of result.items) {
+  //     console.log('post:', post);
+  //     old_indices.push(post._id);
+  //   }
+  // } )
+  // .catch( (err) => {
+  //   let errMsg = err.message;
+  //   let errCode = err.code;
+  // } );
 
   // Query the forum posts collection posted by the current user
   let breakfast = 0;
@@ -172,9 +168,6 @@ export const sortPosts = ( (checked) => {
     filter = filter.hasSome("categoryId", [...breakfasts, ...lunchs, ...snacks]);
   } 
 
-  let sort = wixData.sort();
-  sort = sort.ascending("categoryId");
-
   $w("#dataset1").onReady( () => {
     $w("#dataset1").setFilter(filter)
     .then( () => {
@@ -183,25 +176,23 @@ export const sortPosts = ( (checked) => {
     .catch( (err) => {
       console.log('error in filtering', err.message, err.code);
     });
-    console.log('After sort');
-    $w("#dataset1").setSort( sort )
-    .then( () => {
-      console.log("Dataset is now sorted");
-      $w("#dataset1").onReady( () => {
-        $w("#dataset1").refresh()
-          .then( () => {
-            $w("#dataset1").getItems(0, totalPost).then( (result) => {
-              console.log('items', result.items);
-            } )
-          } );
-        $w("#dataset1").getItems(0, 3).then( (result) => {
-          console.log('result', result);
-        } )
-      } );
-    } )
-    .catch( (err) => {
-      console.log('error in sorting', err.message, err.code);
-    } );
+
+    // $w("#dataset1").setSort( sort )
+    // .then( () => {
+    //     console.log("Dataset is now sorted");
+    //     $w("#dataset1").getItems(1, 1).then( (result) => {
+    //         console.log('items', result.items);
+    //   } )
+    //   $w("#dataset1").onReady( () => {
+    //     $w("#dataset1").refresh()
+    //       .then( () => {
+    //         console.log("Done refreshing the dataset");
+    //       } );
+    //   } );
+    // } )
+    // .catch( (err) => {
+    //   console.log('error in sorting', err.message, err.code);
+    // } );
   } );
 })
 
