@@ -169,6 +169,9 @@ export const sortPosts = ( (checked) => {
     filter = filter.hasSome("categoryId", [...breakfasts, ...lunchs, ...snacks]);
   } 
 
+  let sort = wixData.sort();
+  sort = sort.ascending("_createdDate");
+
   $w("#dataset1").onReady( () => {
     $w("#dataset1").setFilter(filter)
     .then( () => {
