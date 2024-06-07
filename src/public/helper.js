@@ -64,7 +64,7 @@ export const sortPosts = ( (checked) => {
   const totalPost = $w("#dataset1").getTotalCount();
   console.log('Before sort');
   $w("#dataset1").getItems(0, totalPost).then( (result) => {
-    console.log('items', result.items);
+    console.log('result', result);
     // for (let post of result.items) {
     //   console.log('post:', post);
     //   old_indices.push(post._id);
@@ -170,7 +170,7 @@ export const sortPosts = ( (checked) => {
   } 
 
   let sort = wixData.sort();
-  sort = sort.ascending("_createdDate");
+  sort = sort.ascending("createdDate");
 
   $w("#dataset1").onReady( () => {
     $w("#dataset1").setFilter(filter)
@@ -185,7 +185,7 @@ export const sortPosts = ( (checked) => {
     .then( () => {
         console.log("Dataset is now sorted");
         $w("#dataset1").getItems(0, totalPost).then( (result) => {
-          console.log('items', result.items);
+          console.log('result', result);
         } )
       $w("#dataset1").onReady( () => {
         $w("#dataset1").refresh()
