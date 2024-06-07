@@ -61,19 +61,21 @@ export const sortPosts = ( (checked) => {
   let userId = wixUsers.currentUser.id;
   console.log('user:', userId);
   // let old_indices = [];
-  const totalPost = $w("#dataset1").getTotalCount();
-  console.log('Before sort');
-  $w("#dataset1").getItems(0, 3).then( (result) => {
-    console.log('result', result);
-    // for (let post of result.items) {
-    //   console.log('post:', post);
-    //   old_indices.push(post._id);
-    // }
-  } )
-  .catch( (err) => {
-    let errMsg = err.message;
-    let errCode = err.code;
-    console.log('error:', errMsg, errCode);
+  $w("#dataset1").onReady( () => {
+    // const totalPost = $w("#dataset1").getTotalCount();
+    console.log('Before sort');
+    $w("#dataset1").getItems(0, 3).then( (result) => {
+      console.log('result', result);
+      // for (let post of result.items) {
+      //   console.log('post:', post);
+      //   old_indices.push(post._id);
+      // }
+    } )
+    .catch( (err) => {
+      let errMsg = err.message;
+      let errCode = err.code;
+      console.log('error:', errMsg, errCode);
+    } );
   } );
 
   // Query the forum posts collection posted by the current user
@@ -184,10 +186,7 @@ export const sortPosts = ( (checked) => {
     console.log('After sort');
     $w("#dataset1").setSort( sort )
     .then( () => {
-        console.log("Dataset is now sorted");
-        $w("#dataset1").getItems(0, totalPost).then( (result) => {
-          console.log('result', result);
-        } )
+      console.log("Dataset is now sorted");
       $w("#dataset1").onReady( () => {
         $w("#dataset1").refresh()
           .then( () => {
@@ -195,6 +194,9 @@ export const sortPosts = ( (checked) => {
               console.log('items', result.items);
             } )
           } );
+        $w("#dataset1").getItems(0, 3).then( (result) => {
+          console.log('result', result);
+        } )
       } );
     } )
     .catch( (err) => {
