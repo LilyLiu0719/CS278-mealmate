@@ -1,4 +1,54 @@
-# Git Integration & Wix CLI <img align="left" src="https://user-images.githubusercontent.com/89579857/185785022-cab37bf5-26be-4f11-85f0-1fac63c07d3b.png">
+# MealMate
+
+Welcome to MealMate! This repository contains the source code for a meal planning application.
+
+## How to Run the Code
+
+To run the code locally, follow these steps:
+
+1. Make sure you have the following prerequisites installed on your machine:
+   - Git: [Download Git](https://git-scm.com/download)
+   - Node.js: [Download Node.js](https://nodejs.org/en/download/), version 14.8 or later
+   - npm or yarn: Install either npm or yarn. You can find installation instructions for npm [here](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) and for yarn [here](https://yarnpkg.com/getting-started/install)
+   - An SSH key added to your GitHub account. You can find instructions [here](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+
+2. Open your terminal and navigate to the directory where you want to store the repository.
+
+3. Clone the repository by running the following command:
+   ```
+   git clone git@github.com:LilyLiu0719/CS278-mealmate.git
+   cd CS278-mealmate
+   npm install
+   ```
+
+4. Install the repository's dependencies:
+   ```
+   npm install -g @wix/cli
+   ```
+
+5. Run the code in development mode:
+   ```
+   wix dev
+   ```
+
+## Major Functions
+
+The `src` directory contains the following major functions:
+
+- `pages/masterPage.js`: This is our site's global code, will run on every pages. 
+   - `pages/Forum`: This program will run when the forum page is loaded.
+   - `pages/Profile`: This program will run when the profile page is loadede.
+   - `pages/Search Results`: This program will run when the settings page is loaded.
+- `backend/`: this folder contains some regular backend JavaScript files that define the feature functions
+   - `event.js`: Handle event that will be triggered automatically
+   - `checkPost.js`: This program will run when a post is checked for validity.
+   - `chat.js`: Handle DM
+   - `toxicity.js`: Preform moderation
+- `public/`: Public code that can be accessed by your frontend and backend code.
+   - `helper.js`: helper functions that handle filtering and ranking
+
+
+## Git Integration & Wix CLI <img align="left" src="https://user-images.githubusercontent.com/89579857/185785022-cab37bf5-26be-4f11-85f0-1fac63c07d3b.png">
 
 This repo is part of Git Integration & Wix CLI, a set of tools that allows you to write, test, and publish code for your Wix site locally on your computer. 
 
