@@ -1,3 +1,10 @@
+/*
+ *
+ * Code below directly obtained from this tutorial:
+ * https://dev.to/amandamartindev/chat-moderation-in-wix-with-tensorflowjs-and-velo-4dd2
+ *
+ */
+
 import * as toxicity from '@tensorflow-models/toxicity';
 import wixChatBackend from 'wix-chat-backend';
 
